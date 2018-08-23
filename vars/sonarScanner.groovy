@@ -1,3 +1,7 @@
+/*
+Author - jruben@roostify.com
+Date   - 08/23/2018
+*/
 def sonarRunner(String buildPath){
   if (env.GIT_BRANCH == 'develop') {
     sh "./gradlew -b "+buildPath+" sonar -Dsonar.host.url=${SONAR_URL} -Dsonar.login=${SONAR_PASSWORD}"
