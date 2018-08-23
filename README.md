@@ -2,6 +2,14 @@
 
 ## Common Jenkins library for Java projects to be used accross the organization.
 
+Pre-requsite
+```
+Make sure the following variables are configured on Jenkins
+1. SONAR_URL -- Sonarqube url to use.
+2. SONAR_PASSWORD -- Sonarqube token.
+3. GITHUB_OAUTH_TOKEN -- Github token
+```
+
 Usage
 
 ``` 
