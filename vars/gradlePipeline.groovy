@@ -1,7 +1,7 @@
-/**
+/*
 Author - jruben@roostify.com
 Date   - 08/23/2018
-**/
+*/
 
 def call(Map config) {
  buildFilePath = "./build.gradle"
