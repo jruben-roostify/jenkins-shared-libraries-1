@@ -66,7 +66,9 @@ def call(Map config) {
       }
      }
      steps {
-       docker.build(imageName)
+       script {
+         docker.build(imageName)
+       }
      }
     }
   }
