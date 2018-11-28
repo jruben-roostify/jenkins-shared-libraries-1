@@ -5,10 +5,14 @@ Date   - 08/23/2018
 
 def call(Map config) {
  buildFilePath = "./build.gradle"
+ imageName = ""
  scanner = new sonarScanner()
  if (config.containsKey('buildFilePath')) {
   buildFilePath = config.get('buildFilePath')
  }
+ if (config.containsKey('imageName')) {
+   imageName = config.get('imageName')
+  }
  pipeline {
   agent any
   stages {
@@ -55,6 +59,16 @@ def call(Map config) {
          }
     }
    }
+   stage('Dockerize') {
+     when {
+      expression {
+       return (config.containsKey('dockerNeeded') && config.get('dockerNeeded'))
+      }
+     }
+     steps {
+       docker.build(imageName)
+     }
+    }
   }
  }
 }
